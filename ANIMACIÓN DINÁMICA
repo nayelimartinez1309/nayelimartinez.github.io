@@ -1,1 +1,11 @@
-
+cd "C:/Users/nayel/Desktop/ANIMACIÓN DINÁMICA"
+git init
+git remote add origin https://github.com/nayelimartinez1309/nayelimartinez.github.io.git
+git add .
+git commit -m "Subiendo proyecto de Animación Dinámica"
+git branch -M main
+"C:\Users\nayel\Desktop\ANIMACIÓN DINÁMICA"
+git push -u origin main
+"C:\Users\nayel\Desktop\ANIMACIÓN DINÁMICA\Actividades"
+"C:\Users\nayel\Desktop\ANIMACIÓN DINÁMICA\Banner.png"
+"C:\Users\nayel\Desktop\ANIMACIÓN DINÁMICA\Index.html"
