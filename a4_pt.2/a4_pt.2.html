@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas{
+          border: 1px solid #0476f8;
+          background-color: rgb(195,232,240);
+      }
+    </style>
+
+    <script>
+      window.onload=function(){
+          var canvas = document.getElementById("micanvas");
+          var context = canvas.getContext("2d");
+
+          context.fillStyle="LemonChiffon";
+          context.fillRect(250,300,300,300);
+
+          context.fillStyle="tomato";
+          context.fillRect(225,300,350,25);
+
+          context.fillStyle="rgba(173, 216, 230, 0.5)";
+          context.fillRect(280,340,60,60);
+          context.fillRect(460,340,60,60);
+          context.strokeStyle = "grey";
+          context.lineWidth = 5;
+          context.strokeRect(280,340,60,60);
+          context.strokeStyle = "grey";
+          context.lineWidth = 5;
+          context.strokeRect(460,340,60,60);
+
+          context.fillStyle="SaddleBrown";
+          context.fillRect(360,460,80,140);
+          context.strokeStyle = "brown";
+          context.lineWidth = 5;
+          context.strokeRect(360,460,80,140);
+
+          context.fillStyle="brown";
+          context.fillRect(495,220,40,80);
+      }
+  </script>
+
+</head>
+<body>
+   <canvas id="micanvas" width="800" height="600"></canvas>
+</body>
+</html>
