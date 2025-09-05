@@ -1,0 +1,178 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Proyecto Interactivo Con El Teclado</title>
+    <style>
+      body{
+        background-image: url('fondo.jpg');
+        text-align: center;
+      }
+      canvas {
+        background-color: rgba(255, 239, 213, 0.5);
+      }
+    </style>
+  </head>
+  <body>
+    <aside>Press the keys "K, R, S, M, T, or C".</aside>
+    <canvas id="canvas" width="900" height="700"></canvas>
+    <script>
+    window.onload = function () {
+      var canvas = document.getElementById("canvas");
+      var context = canvas.getContext("2d");
+
+      context.font = 'bold 40pt cursive';
+      context.fillStyle = 'purple';
+      context.textAlign='center';
+      context.fillText('BT21', 450, 50);
+
+      context.font = '20pt Georgia';
+      context.fillStyle = 'black';
+      context.textAlign='center';
+      context.fillText('Press the keys "K, R, S, M, T, or C" to meet all the BT21 characters.', 450, 100);
+
+      var imagen = new Image(); //variable para guardar la imagen
+      imagen.src = "bt21.png"; //fuente de donde toma la imagen
+      imagen.onload = function () {
+        context.drawImage(imagen, 150, 125, 600, 400); //<== para poner imagen en el>
+      };
+
+
+      //var
+      var imagenKoya = new Image();
+      imagenKoya.src = "koya.png";
+
+      var imagenRJ = new Image();
+      imagenRJ.src = "rj.png";
+
+      var imagenShooky = new Image();
+      imagenShooky.src = "shooky.png";
+
+      var imagenMang = new Image();
+      imagenMang.src = "mang.png";
+
+      var imagenTata = new Image();
+      imagenTata.src = "tata.png";
+
+      var imagenChimmy = new Image();
+      imagenChimmy.src = "chimmy.png";
+
+      var imagenCooky = new Image();
+      imagenCooky.src = "cooky.png"; 
+
+
+      //case
+      function onKeyboardEvent(event) {
+        var key = event.key.toLowerCase();
+        switch (key) {
+          case 'k':
+            console.log("Letra K!");
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            context.font = 'bold 40pt cursive';
+            context.fillStyle = 'black';
+            context.textAlign='center';
+            context.fillText('KOYA', 450, 100);
+            context.drawImage(imagenKoya, 230, 150, 440, 400);
+
+            context.font = '15pt Georgia';
+            context.fillStyle = 'black';
+            context.textAlign='center';
+            context.fillText('Press the "i" key to initiate again', 730, 650);
+            break;
+            case 'r':
+            console.log("Letra R!");
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            context.font = 'bold 40pt cursive';
+            context.fillStyle = 'black';
+            context.textAlign='center';
+            context.fillText('RJ', 450, 100);
+            context.drawImage(imagenRJ, 250, 150, 400, 400);
+
+            context.font = '15pt Georgia';
+            context.fillStyle = 'black';
+            context.textAlign='center';
+            context.fillText('Press the "i" key to initiate again', 745, 650);
+            break;
+            case 's':
+            console.log("Letra S!");
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            context.font = 'bold 40pt cursive';
+            context.fillStyle = 'black';
+            context.textAlign='center';
+            context.fillText('SHOOKY', 450, 100);
+            context.drawImage(imagenShooky, 250, 150, 400, 400);
+
+            context.font = '15pt Georgia';
+            context.fillStyle = 'black';
+            context.textAlign='center';
+            context.fillText('Press the "i" key to initiate again', 745, 650);
+            break;
+            case 'm':
+            console.log("Letra M!");
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            context.font = 'bold 40pt cursive';
+            context.fillStyle = 'black';
+            context.textAlign='center';
+            context.fillText('MANG', 450, 100);
+            context.drawImage(imagenMang, 270, 150, 360, 400);
+
+            context.font = '15pt Georgia';
+            context.fillStyle = 'black';
+            context.textAlign='center';
+            context.fillText('Press the "i" key to initiate again', 745, 650);
+            break;
+            case 't':
+            console.log("Letra T!");
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            context.font = 'bold 40pt cursive';
+            context.fillStyle = 'black';
+            context.textAlign='center';
+            context.fillText('TATA', 450, 100);
+            context.drawImage(imagenTata, 250, 150, 400, 400);
+
+            context.font = '15pt Georgia';
+            context.fillStyle = 'black';
+            context.textAlign='center';
+            context.fillText('Press the "i" key to initiate again', 745, 650);
+            break;
+            case 'c':
+            console.log("Letra C!");
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            context.font = 'bold 40pt cursive';
+            context.fillStyle = 'black';
+            context.textAlign='center';
+            context.fillText('CHIMMY & COOKY', 450, 100);
+            context.drawImage(imagenChimmy, 100, 150, 400, 400);
+            context.drawImage(imagenCooky, 500, 150, 300, 400); 
+
+            context.font = '15pt Georgia';
+            context.fillStyle = 'black';
+            context.textAlign='center';
+            context.fillText('Press the "i" key to initiate again', 745, 650);
+            break;
+            case 'i':
+            console.log("Letra I!");
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            context.font = 'bold 40pt cursive';
+            context.fillStyle = 'purple';
+            context.textAlign='center';
+            context.fillText('BT21', 450, 50);
+
+            context.font = '20pt Georgia';
+            context.fillStyle = 'black';
+            context.textAlign='center';
+            context.fillText('Press the keys "K, R, S, M, T, or C" to meet all the BT21 characters.', 450, 100);
+
+            var imagen = new Image(); //variable para guardar la imagen
+            imagen.src = "bt21.png"; //fuente de donde toma la imagen
+            imagen.onload = function () {
+            context.drawImage(imagen, 150, 125, 600, 400); //<== para poner imagen en el>
+            };
+        }
+      }
+
+      window.addEventListener('keydown', onKeyboardEvent, false);
+    };
+    </script>
+  </body>
+</html>
