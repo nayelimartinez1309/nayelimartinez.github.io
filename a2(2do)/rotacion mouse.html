@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Rotate to Mouse</title>
+    <style>
+      canvas {
+        background-color:rgb(142, 186, 142);
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas" width="1500" height="700"></canvas>
+    <aside>Move mouse on canvas element.</aside>
+    
+    <script src="utils.js"></script>
+    <script>
+    window.onload = function () {
+      var canvas = document.getElementById('canvas'),
+          context = canvas.getContext('2d'),
+          mouse = utils.captureMouse(canvas),
+          conejo = new Image();
+          conejo.src = "conejo.png";
+          zanahoria = new Image();
+          zanahoria.src = "zanahoria.png"
+
+          var zanahoriaX = Math.random() * 650;
+          var zanahoriaY = 200;
+          var dx = 2;
+          var dy = 2;
+        
+      (function drawFrame () {
+        window.requestAnimationFrame(drawFrame, canvas);
+        context.clearRect(0, 0, canvas.width, canvas.height);
+
+        context.save();
+        context.font = 'bold 40pt cursive';
+        context.fillStyle = 'white';
+        context.textAlign='center';
+        context.fillText('BUNNIES', 750, 60);
+        
+        context.save();
+
+        var x = canvas.width/2-300;
+        var y = canvas.height/2;
+
+        context.translate(x, y);
+        var dx1= mouse.x - x;
+            dy1= mouse.y - y;
+        var radianes = Math.atan2(dy1, dx1);
+        console.log(radianes);
+        context.rotate(radianes);
+        context.drawImage(conejo, -conejo.width/2, -conejo.height/2);
+        context.restore();
+
+        //conejo 2
+        var x2= canvas.width/2+300;
+        var y2= canvas.height/2;
+
+        context.save();
+        context.translate(x2, y2);
+        var dx2= mouse.x - x2;
+            dy2= mouse.y - y2;
+        var radianes2= Math.atan2(dy2, dx2);
+        context.rotate(radianes2);
+        context.drawImage(conejo, -conejo.width/2, -conejo.height/2);
+        context.restore();
+
+        //zanahoria
+        if (zanahoriaX > 1500 - zanahoria.width / 2 || zanahoriaX < zanahoria.width / 2) {
+          dx = -dx;
+        }
+        zanahoriaX += dx;
+
+        if (zanahoriaY > 700 - zanahoria.height / 2 || zanahoriaY < zanahoria.height / 2) {
+          dy = -dy;
+        }
+        zanahoriaY += dy;
+
+        context.save();
+        context.translate(zanahoriaX, zanahoriaY);
+        context.drawImage(zanahoria, -zanahoria.width / 2, -zanahoria.height / 2);
+        context.restore();
+        
+      }());
+    };
+    </script>
+  </body>
+</html>
