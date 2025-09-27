@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Wave 1</title>
+    <style>
+      body{
+        background-image: url('galaxy.jpg');
+        text-align: center;
+      }
+      canvas {
+        text-align: center;
+        border: 3px solid brown;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas" width="1000" height="600"></canvas>
+    
+    <script src="utils.js"></script>
+    <script src="./classes/ball.js"></script>
+    <script>
+    window.onload = function () {
+      var canvas = document.getElementById('canvas'),
+          context = canvas.getContext('2d'),
+          ball = new Ball(),
+          angle = 0,
+          centerY = 300,
+          range = 50,
+          xspeed = 2,
+          yspeed = 0.05;
+        
+      ball.x = 0;
+      ball.y = centerY;
+
+      var background = new Image();
+      background.src = 'game.jpg';
+        
+      (function drawFrame () {
+        window.requestAnimationFrame(drawFrame, canvas);
+        context.clearRect(0, 0, canvas.width, canvas.height);
+
+        context.drawImage(background, 0, 0, canvas.width, canvas.height);
+
+        context.save();
+        context.font = 'bold 30pt cursive';
+        context.fillStyle = 'white';
+        context.textAlign='center';
+        context.fillText('PLAY!', 500, 60);
+
+        ball.x += xspeed;
+        ball.y = centerY + Math.sin(angle) * range;
+        angle += yspeed;
+
+        var starWidth = 150;
+        var starHeight = 150;
+
+        if (ball.x + starWidth > canvas.width || ball.x < 0){
+            xspeed = -xspeed;
+        }
+        ball.draw(context);
+      }());
+    };
+    </script>
+  </body>
+</html>
