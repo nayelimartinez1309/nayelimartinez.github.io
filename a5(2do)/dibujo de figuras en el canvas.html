@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>dibujo de figuras en el canvas</title>
+    <style>
+      canvas {
+        background-color:lightcyan;
+      }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="900" height="600"></canvas>
+    <script>
+        window.onload = function () {
+            //Our code here...
+            var canvas = document.getElementById('canvas'),
+            context = canvas.getContext('2d');
+
+            //FONDO
+            pt1 = {x: 0, y: 0},           //gradient start point
+            pt2 = {x: 0, y: canvas.height},           //gradient end point
+            gradient = context.createLinearGradient(pt1.x, pt1.y, pt2.x, pt2.y);
+
+            //white to blue to red
+            gradient.addColorStop(0, "lightskyblue");
+            gradient.addColorStop(0.5, "lightskyblue");
+            gradient.addColorStop(1, "lightsalmon");
+
+            context.fillStyle = gradient;
+            context.fillRect(0, 0, canvas.width, canvas.height);
+
+            context.save();
+            context.font = 'bold 30pt cursive';
+            context.fillStyle = 'black';
+            context.textAlign='center';
+            context.fillText('Figuras En El Canvas', 450, 60);
+
+            //FIGURA TRIANGULO CASITA
+            context.save();
+            context.lineWidth = 2;
+            context.strokeStyle='black';
+            context.fillStyle='brown';
+            context.beginPath();
+            context.moveTo(100,200);
+            context.lineTo(150,150);
+            context.lineTo(200,200);
+            //context.lineTo(100,100);
+            //context.lineTo(200,200);
+            //context.lineTo(100,200);
+            //context.lineTo(100,100);
+            context.fill();
+            context.stroke();
+            context.restore();
+
+            //FIGURA RECTANGULO CASITA
+            context.save();
+            context.lineWidth = 2;
+            context.strokeStyle='black';
+            context.fillStyle='CornSilk';
+            context.beginPath();
+            context.fillRect(100,200,100,100);
+            context.strokeRect(100, 200, 100, 100);
+            context.stroke();
+            context.restore();
+
+            //RECTANGULO PUERTA CASITA
+            context.save();
+            context.lineWidth = 2;
+            context.strokeStyle='black';
+            context.fillStyle='brown';
+            context.beginPath();
+            context.fillRect(135,250,30,50);
+            context.strokeRect(135,250,30,50);
+            context.closePath();
+            context.restore();
+
+            //CIRCULO VENTANA
+            context.save();
+            context.lineWidth = 2;
+            context.strokeStyle="black";
+            context.fillStyle="lightBlue";
+            context.beginPath();
+            context.arc(150,220,15,0, 2 * Math.PI);
+            context.stroke();
+            context.fill();
+            context.closePath();
+            context.restore();
+
+            //CIRCULO
+            /*
+            context.save();
+            context.fillStyle = "yellow";
+            context.strokeStyle = "orange";
+            context.lineWidth = 20;
+            context.beginPath();
+            context.arc(150,300,70,0, 2 * Math.PI);
+            context.stroke();
+            context.fill();
+            context.closePath();
+            context.restore();
+            */
+
+            //HONGUITO
+            context.save();
+            context.lineWidth = 2;
+            context.strokeStyle='black';
+            context.fillStyle='red';
+            context.beginPath();
+            context.moveTo(320,250);
+            context.quadraticCurveTo(345,200,370,200);
+            context.quadraticCurveTo(395,200,420,250);
+            context.closePath();
+            context.fill();
+            context.stroke();
+            context.restore();
+
+            //RECTANGULO HONGUITO
+            context.save();
+            context.lineWidth = 2;
+            context.strokeStyle='black';
+            context.fillStyle='AntiqueWhite';
+            context.beginPath();
+            context.fillRect(355,250,30,50);
+            context.strokeRect(355,250,30,50);
+            context.closePath();
+            context.restore();
+
+            //CIRCULOS BLANCOS
+            context.save();
+            context.fillStyle="white";
+
+            context.beginPath();
+            context.arc(340,235,7,0, 2 * Math.PI);
+            context.fill();
+            context.closePath();
+
+            context.beginPath();
+            context.arc(370,210,7,0, 2 * Math.PI);
+            context.fill();
+            context.closePath();
+
+            context.beginPath();
+            context.arc(370,230,7,0, 2 * Math.PI);
+            context.fill();
+            context.closePath();
+
+            context.beginPath();
+            context.arc(400,235,7,0, 2 * Math.PI);
+            context.fill();
+            context.closePath();
+
+            context.restore();
+
+
+            //ESTRELLA
+            context.save();
+            context.lineWidth = 2;
+            context.strokeStyle ='gold';
+            context.fillStyle='gold';
+
+            //ESTRELLA TRIANGULO ARRIBA
+            context.beginPath();
+            context.moveTo(560,240);
+            context.lineTo(545,270);
+            context.lineTo(575,270);
+            context.closePath();
+            context.fill();
+            context.stroke();
+
+            //ESTRELLA TRIANGULO DERECHA
+            context.beginPath();
+            context.moveTo(590,270);
+            context.lineTo(560,255);
+            context.lineTo(560,285);
+            context.closePath();
+            context.fill();
+            context.stroke();
+
+            //ESTRELLA TRIANGULO ABAJO
+            context.beginPath();
+            context.moveTo(560,300);
+            context.lineTo(575,270);
+            context.lineTo(545,270);
+            context.closePath();
+            context.fill();
+            context.stroke();
+
+            //ESTRELLA TRIANGULO IZQUIERDA
+            context.beginPath();
+            context.moveTo(530,270);
+            context.lineTo(560,285);
+            context.lineTo(560,255);
+            context.closePath();
+            context.fill();
+            context.stroke();
+
+            context.restore();
+
+
+            //LUNA
+            context.save();
+            context.fillStyle = "yellow";
+            context.beginPath();
+            context.arc(740,270,40,0, 2 * Math.PI);
+            context.fill();
+            context.closePath();
+            context.restore();
+
+            //CIRCULO BLANCO
+            context.fillStyle="lightskyblue";
+            context.beginPath();
+            context.arc(770,270,40,0, 2 * Math.PI);
+            context.fill();
+            context.closePath();
+
+            context.restore();
+
+
+            //RECTANGULO TALLO FLOR
+            context.save();
+            context.fillStyle='lightgreen';
+            context.beginPath();
+            context.fillRect(145,450,10,40);
+            context.closePath();
+            context.restore();
+            context.restore();
+
+            //FLORECITA
+            context.save();
+            context.fillStyle="pink"
+
+            //CIRCULOS PETALOS
+            context.beginPath();
+            context.arc(150,400,20,0, 2 * Math.PI);
+            context.fill();
+            context.closePath();
+
+            context.beginPath();
+            context.arc(150,440,20,0, 2 * Math.PI);
+            context.fill();
+            context.closePath();
+
+            context.beginPath();
+            context.arc(130,420,20,0, 2 * Math.PI);
+            context.fill();
+            context.closePath();
+
+            context.beginPath();
+            context.arc(170,420,20,0, 2 * Math.PI);
+            context.fill();
+            context.closePath();
+
+            context.restore();
+
+            //CIRCULO CENTRO POLEN
+            context.fillStyle="yellow"
+            context.beginPath();
+            context.arc(150,420,20,0, 2 * Math.PI);
+            context.fill();
+            context.closePath();
+            context.restore();
+
+        };
+    </script>
+    
+</body>
+</html>
