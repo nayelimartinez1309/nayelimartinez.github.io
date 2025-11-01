@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Rotational Velocity</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <canvas id="canvas" width="600" height="600"></canvas>
+
+    <script src="utils.js"></script>
+    <script src="./classes/arrow.js"></script>
+    <script>
+    window.onload = function () {
+      var canvas = document.getElementById('canvas'),
+          context = canvas.getContext('2d');
+
+          var fondo = new Image();
+          fondo.src = "reloj.png";
+
+          //arrow = new Arrow(),
+          vr = .1; //degrees
+          var hora = new Image();
+          hora.src = "horas.png";
+          var radianes=0;
+
+          //minutos
+          vr2 = vr * 11.3; //degrees
+          var minuto = new Image();
+          minuto.src = "minutos.png";
+          var radianes2=0;
+
+          //segundos
+          vr3 = vr * 60; //degrees
+          var segundo = new Image();
+          segundo.src = "segundos.png";
+          var radianes3=0;
+
+      (function drawFrame () {
+        window.requestAnimationFrame(drawFrame, canvas);
+        context.clearRect(0, 0, canvas.width, canvas.height);
+
+        //FONDO
+        pt1 = {x: 0, y: 0},           //gradient start point
+        pt2 = {x: 0, y: canvas.height},           //gradient end point
+        gradient = context.createLinearGradient(pt1.x, pt1.y, pt2.x, pt2.y);
+
+        //white to blue to red
+        gradient.addColorStop(0, "lightskyblue");
+        gradient.addColorStop(0.5, "lemonchiffon");
+        gradient.addColorStop(1, "lightsalmon");
+
+        context.fillStyle = gradient;
+        context.fillRect(0, 0, canvas.width, canvas.height);
+
+        context.drawImage(fondo, 0, 0, canvas.width, canvas.height);
+
+        //minutos
+        context.save();
+        context.translate(300, 300);
+        radianes2 += vr2 * Math.PI / 180; //to radians
+        context.rotate(radianes2); //radians
+        context.drawImage(minuto, -minuto.width/2,-minuto.height/2);
+        context.restore();
+        
+        context.save();
+        context.translate(300, 300);
+        radianes += vr * Math.PI / 180; //to radians
+        context.rotate(radianes); //radians
+        context.drawImage(hora, -hora.width/2,-hora.height/2);
+        context.restore();
+
+        //segundos
+        context.save();
+        context.translate(300, 300);
+        radianes3 += vr3 * Math.PI / 180; //to radians
+        context.rotate(radianes3); //radians
+        context.drawImage(segundo, -segundo.width/2,-segundo.height/2);
+        context.restore();
+      
+      }());
+    };
+    </script>
+  </body>
+</html>
